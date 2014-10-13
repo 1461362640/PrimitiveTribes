@@ -1,0 +1,11 @@
+<link href="./source/easyui/themes/default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css"	href="./source/easyui/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css"	href="./source/easyui/themes/icon.css" />
+
+<script type="text/javascript" src="./source/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="./source/easyui/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src='./source/easyui/menu.js'> </script>
+<script type="text/javascript" src='./source/easyui/easyloader.js'> </script>
+
+

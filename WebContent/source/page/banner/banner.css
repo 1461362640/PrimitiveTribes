@@ -1,0 +1,34 @@
+#top-zone {
+	overflow:hidden;
+	width:960px;
+	margin:0 auto;
+	height:220px;
+}  
+#billboard {
+	width:940px;
+	height:400px;
+	margin:10px 10px 20px 10px;
+	overflow:hidden;
+	background:url('./billboard-bg.jpg') no-repeat top center;
+}
+.slideshow {
+	width:920px;
+	height:360px;
+	margin:10px;
+	overflow:hidden;
+}
+.slideshow li {
+	list-style:none;
+	float:left;
+	display:inline;
+	position:relative;
+}
+.edge-holders {
+	width:940px;
+	height:400px;
+	background:url('./edge-holders.png') no-repeat top center;
+	position:relative;
+	margin:10px;
+	z-index:10;
+	top:-420px;
+}

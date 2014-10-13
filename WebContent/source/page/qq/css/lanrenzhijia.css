@@ -1,0 +1,82 @@
+/* //导航小人 */
+.spig {
+	display:block;
+	width:150px;
+	height:190px;
+	position:absolute;
+	top: -200px;
+	left: 160px;
+	z-index:9999;
+}
+#message {
+	color :#191919;
+	border: 1px solid #c4c4c4;
+	background:#ddd;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	min-height:1em;
+	padding:5px;
+	top:-30px;
+	position:absolute;
+	text-align:center;
+	width:auto !important;
+	z-index:10000;
+	-moz-box-shadow:0 0 15px #eeeeee;
+	-webkit-box-shadow:0 0 15px #eeeeee;
+	border-color:#eeeeee;
+	box-shadow:0 0 15px #eeeeee;
+	outline:none;
+}
+.mumu {
+	width:150px;
+	height:190px;
+	cursor: pointer;
+	background:url(../images/lanrenzhijia.png) no-repeat;
+}
+
+/* //右侧qq样式 */
+#qq_icon {
+	width:187px;
+	height:193px;
+	background:url(../images/qq_icon.png) no-repeat;
+	position:fixed;
+	right:-200px;
+	top:150px;
+	cursor:pointer;
+}
+#cs_online {
+	width:217px;
+	height:324px;
+	position:fixed;
+	top:150px;
+	right:-220px;
+	background:url(../images/qq_bg.png) no-repeat;
+	display:none;
+	filter:alpha(opacity:0);
+	opacity:0;
+}
+.qq_context {
+	width:185px;
+	height:244px;
+	margin-top:73px;
+	margin-left:24px;
+	list-style:none;
+	padding:0px;
+}
+.qq_context li {
+	width:175px;
+	height:25px;
+	margin-left:5px;
+	margin-top:20px;
+	float:left;
+}
+.span_t {
+	display:block;
+	float:left;
+	color:#333;
+	line-height:25px;
+	font-size:12px;
+	font-family:'Arial';
+}
+ 

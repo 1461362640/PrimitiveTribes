@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>统一管理平台</title>
+<script type="text/javascript"
+	src="./source/page/aui-artDialog/lib/jquery-1.10.2.js"></script>
+<link rel="stylesheet" type="text/css" href="./source/page/css/main.css" />
+
+<!--弹出框-->
+<link rel="stylesheet"
+	href="./source/page/aui-artDialog/css/ui-dialog.css">
+	<script src="./source/page/aui-artDialog/dist/dialog-min.js"></script>
+
+	<!-- 登陆验证 -->
+<script type="text/javascript">
+ function submitForm(){
+	 var userName = $.trim($("#userName").val());
+		var passWord = $.trim($("#passWord").val());
+		var d;
+		if (userName == "") {
+			// $("#info").text("用户名不能为空!");return;
+
+			d = dialog({
+				content : '用户名不能为空!',
+				quickClose : true
+			// 点击空白处快速关闭
+			});
+			d.show(document.getElementById('userName'));
+			return;
+		}
+		if (passWord == "") {
+			//$("#info").text("密码不能为空!");return;
+			d = dialog({
+				content : '密码不能为空!',
+				quickClose : true
+			// 点击空白处快速关闭
+			});
+			d.show(document.getElementById('passWord'));
+			return;
+		}
+		
+		$.post("./login.do?check", {
+			"userName" : userName,
+			"passWord" : passWord
+		}, function(data) {
+			console.log(data);
+			 if(data.success=="true"){
+				 window.location.replace("./forward.do?forward");
+			 }else{
+				 d = dialog({
+						title : '警告',
+						content :data.tip //'登陆失败！请检查用户名和密码重新登录！'
+					});
+					d.show();
+			 }
+		}, "json");
+ }
+</script>
+</head>
+<body onkeydown="if(event.keyCode == 13){submitForm()}">
+	<div class="login_box">
+		<form id="form1" name="form1" method="post" action="">
+			<table width="270" border="0" cellspacing="0" cellpadding="0">
+
+				<tr>
+					<td width="299">
+						<p class="header">统一管理平台</p>
+					</td>
+				</tr>
+				<tr>
+					<td><span class="input_label">用户名</span> <input class="input"
+						type="text" name="userName" id="userName" value="admin" /></td>
+				</tr>
+				<tr>
+					<td><span class="input_label">密码</span> <input class="input"
+						type="password" name="passWord" id="passWord" value="admin" /></td>
+				</tr>
+				<!-- <li><label>验证码：</label> <input type="text" class="text"
+							style="width: 50px; margin-right: 5px; text-transform: uppercase;"
+							id="vdcode" name="pageCode" /> <img id="vdimgck"
+							src="./captcha.do?getCode" alt="看不清？点击更换" align="absmiddle"
+							style="cursor: pointer" onClick="this.src=this.src+'?'+getCode" /></li> -->
+				<tr>
+					<td><input type="button" name="button" class="button" onclick="javascrip:void(submitForm())"
+						value="提交" />
+						<!-- <p class="links_wrap">
+							<a href="#">忘记密码了 ?</a><br />
+						</p> -->
+						</td>
+				</tr>
+			</table>
+
+		</form>
+	</div>
+</body>
+</html>

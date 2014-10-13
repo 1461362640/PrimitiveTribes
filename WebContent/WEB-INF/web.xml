@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<!-- spring配置文件的初始化 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:spring/applicationContext.xml,
+			classpath:spring/spring-hibernate.xml
+		</param-value>
+	</context-param>
+	<!-- 引擎配置文件加载 -->
+	<!-- <context-param>
+    <param-name>httl.properties</param-name>
+    <param-value>conf/httl.properties</param-value>
+	</context-param> -->
+	<!-- 设置编码 防止出现实例化的时候中文乱码 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>project</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+			classpath:spring/spring-servlet.xml
+			</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>project</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<!-- 图片上传 -->
+	<servlet>
+		<servlet-name>upload</servlet-name>
+		<servlet-class>com.jee.zero.core.util.FileServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>upload</servlet-name>
+		<url-pattern>/picload</url-pattern>
+	</servlet-mapping>
+	<!-- 视频文件上传 -->
+	<servlet>
+    <servlet-name>Uploader</servlet-name>
+    <servlet-class>com.easyui.core.util.UploaderServlet</servlet-class>
+    <!-- 文件上传后的路径 -->
+    <init-param>
+    	<param-name>uploadPath</param-name>
+    	<param-value>/tmp/videos</param-value>
+    </init-param>
+    <!-- 文件上传的临时文件路径 -->
+     <init-param> 
+            <param-name>repositoryPath</param-name> 
+            <param-value>/tmp</param-value> 
+      </init-param> 
+    <!-- 视频文件类型 -->
+     <init-param> 
+            <param-name>videoType</param-name> 
+            <param-value>mp4</param-value> 
+     </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>Uploader</servlet-name>
+    <url-pattern>/uploader</url-pattern>
+  </servlet-mapping>
+	
+	<!-- 首页 -->
+	<welcome-file-list>
+		<welcome-file>login.htm</welcome-file>
+	</welcome-file-list>
+</web-app>

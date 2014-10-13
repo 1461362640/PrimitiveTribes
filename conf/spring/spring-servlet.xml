@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"
+	xmlns:mvc="http://www.springframework.org/schema/mvc">
+	<!-- 开启注解 -->
+	<context:annotation-config />
+
+	 <!-- 对静态资源文件的访问 -->     
+    <mvc:resources mapping="./source" location="./source/**" />  
+    
+	<!-- 把标记了@Controller注解的类转换为bean -->
+	<context:component-scan base-package="com.easyui">
+		<!-- 扫描业务层controller -->
+		<context:include-filter type="regex" expression="com.easyui.common.action" />
+		<context:include-filter type="regex" expression="com.easyui.web.action" />
+	</context:component-scan>
+
+<!-- 拦截器 -->  
+      <mvc:interceptors>    
+       <!--  多个拦截器,顺序执行     -->
+        <mvc:interceptor>    
+         <!--  如果不配置或/**,将拦截所有的Controller   -->
+           <mvc:mapping path="/**" />   
+         <!--   在Freemarker界面展示之前做一些通用处理     -->
+           <bean class="com.easyui.core.permission.interceptor.SelfInterceptor"></bean>    
+        </mvc:interceptor>    
+    </mvc:interceptors>    
+		
+<!-- 对json数据的支持 -->
+<bean  class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >  
+    <property name="messageConverters">  
+         <list>  
+             <bean class = "org.springframework.http.converter.StringHttpMessageConverter">  
+                <property name = "supportedMediaTypes">  
+                     <list>  
+                         <value>text/plain;charset=UTF-8</value>  
+                     </list>  
+                </property>  
+             </bean>  
+         </list>  
+    </property>  
+</bean>  
+
+<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+		
+		
+<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
+<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:prefix="/WEB-INF/system/" p:suffix=".jsp"></bean> -->
+
+	<mvc:annotation-driven />
+	
+	<!-- httl模板引擎的配置 -->
+	<bean id="viewResolver" class="httl.web.springmvc.HttlViewResolver">
+		<property name="contentType" value="text/html;charset=UTF-8" />
+	</bean>
+</beans>
