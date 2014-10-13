@@ -75,8 +75,7 @@
                                 <div data-options="region: 'north', split: false, border: false" style="height: 33px;">
                                     <div class="easyui-toolbar">
                                         <a id="navMenu_expand" class="easyui-splitbutton" data-options="iconCls: 'icon-metro-expand2', menu: '#navMenu_toggleMenu'">展开</a>
-                                        <a id="navMenu_Favo" class="easyui-linkbutton" data-options="plain: true, iconCls: 'icon-standard-feed-add'">收藏</a>
-                                        <a id="navMenu_Rename" class="easyui-linkbutton" data-options="plain: true, iconCls: 'icon-hamburg-pencil'">重命名</a>
+                                         
                                         <div id="navMenu_toggleMenu" class="easyui-menu">
                                             <div id="navMenu_collapse" data-options="iconCls: 'icon-metro-contract2'">折叠当前</div>
                                             <div class="menu-sep"></div>
@@ -95,29 +94,6 @@
                         </div>
                         <div id="westSouthPanel" data-options="region: 'south', border: false, split: true, minHeight: 32, maxHeight: 275" style="height: 275px; border-top-width: 1px;">
                             <ul id="navMenu_list"></ul>
-                        </div>
-                    </div>
-                </div>
-                <div data-options="title: '个人收藏', iconCls: 'icon-hamburg-star', refreshable: false">
-                    <div id="westFavoLayout" class="easyui-layout" data-options="fit: true">
-                        <div data-options="region: 'north', split: false, border: false" style="height: 33px;">
-                            <div class="easyui-toolbar">
-                                <a id="favoMenu_expand" class="easyui-splitbutton" data-options="iconCls: 'icon-metro-expand2', menu: '#favoMenu_toggleMenu'">展开</a>
-                                <a id="favoMenu_Favo" class="easyui-linkbutton" data-options="plain: true, iconCls: 'icon-standard-feed-delete'">取消收藏</a>
-                                <a id="favoMenu_Rename" class="easyui-linkbutton" data-options="plain: true, iconCls: 'icon-hamburg-pencil'">重命名</a>
-                                <div id="favoMenu_toggleMenu" class="easyui-menu">
-                                    <div id="favoMenu_collapse" data-options="iconCls: 'icon-metro-contract2'">折叠当前</div>
-                                    <div class="menu-sep"></div>
-                                    <div id="favoMenu_collapseCurrentAll" data-options="iconCls: 'icon-metro-expand'">展开当前所有</div>
-                                    <div id="favoMenu_expandCurrentAll" data-options="iconCls: 'icon-metro-contract'">折叠当前所有</div>
-                                    <div class="menu-sep"></div>
-                                    <div id="favoMenu_collapseAll" data-options="iconCls: 'icon-standard-arrow-out'">展开所有</div>
-                                    <div id="favoMenu_expandAll" data-options="iconCls: 'icon-standard-arrow-in'">折叠所有</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div data-options="region: 'center', border: false">
-                            <ul id="favoMenu_Tree" style="padding-top: 2px; padding-bottom: 2px;"></ul>
                         </div>
                     </div>
                 </div>
