@@ -34,7 +34,8 @@ $(function() {
 			});
 			return false;
 		}
-
+		//禁用登录按钮
+		$("#sub").attr({"disabled":"disabled"});
 		//发送请求
 		$.post("./login.do?check", {
 			"userName" : username,
@@ -45,6 +46,7 @@ $(function() {
 			 if(data.success=="true"){
 				 window.location.replace("./forward.do?forward");
 			 }else{
+				 $("#sub").removeAttr("disabled");//将按钮可用
 				 d = dialog({
 						title : '警告',
 						content :data.tip //'登陆失败！请检查用户名和密码重新登录！'
