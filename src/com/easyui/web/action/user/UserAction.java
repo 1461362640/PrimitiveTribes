@@ -33,9 +33,6 @@ public class UserAction {
 	@Autowired
 	private SuperService superService;
 
-	@Autowired
-	private UserService userService;
-
 	// 模板引擎初始
 	private Map<String, Object> parameters = new HashMap<String, Object>();// 参数集合
 
