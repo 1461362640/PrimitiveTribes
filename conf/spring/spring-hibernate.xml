@@ -30,7 +30,7 @@
 		<property name="packagesToScan">
 			<list>
 				<!-- 扫描实体类 -->
-				<value>com.easyui.common.entity</value>
+				<value>com.gouxiang.common.entity</value>
 			</list>
 		</property>
 	</bean>
@@ -49,7 +49,7 @@
 		<property name="password" value="${dataSource.password}" />
 	</bean>
 	<!-- dao层的注入 -->
-	<bean id="baseDao" class="com.easyui.core.dao.impl.BaseDaoImpl">
+	<bean id="baseDao" class="com.gouxiang.core.dao.impl.BaseDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<!-- 开启spring的事务管理 -->

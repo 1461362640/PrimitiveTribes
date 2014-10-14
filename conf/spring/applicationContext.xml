@@ -12,7 +12,7 @@
 	<!-- 开启注解 -->
 	<context:annotation-config />
 	<!-- 自动扫描所有注解该路径 -->
-	<context:component-scan base-package="com.easyui" />
+	<context:component-scan base-package="com.gouxiang" />
 <!-- 验证码 采用kaptcha自动生成 -->
 	<bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
 		<property name="config">

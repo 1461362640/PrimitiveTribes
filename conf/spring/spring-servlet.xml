@@ -17,10 +17,10 @@
     <mvc:resources mapping="./source" location="./source/**" />  
     
 	<!-- 把标记了@Controller注解的类转换为bean -->
-	<context:component-scan base-package="com.easyui">
+	<context:component-scan base-package="com.gouxiang">
 		<!-- 扫描业务层controller -->
-		<context:include-filter type="regex" expression="com.easyui.common.action" />
-		<context:include-filter type="regex" expression="com.easyui.web.action" />
+		<context:include-filter type="regex" expression="com.gouxiang.common.action" />
+		<context:include-filter type="regex" expression="com.gouxiang.web.action" />
 	</context:component-scan>
 
 <!-- 拦截器 -->  
@@ -30,7 +30,7 @@
          <!--  如果不配置或/**,将拦截所有的Controller   -->
            <mvc:mapping path="/**" />   
          <!--   在Freemarker界面展示之前做一些通用处理     -->
-           <bean class="com.easyui.core.permission.interceptor.SelfInterceptor"></bean>    
+           <bean class="com.gouxiang.core.permission.interceptor.SelfInterceptor"></bean>    
         </mvc:interceptor>    
     </mvc:interceptors>    
 		
